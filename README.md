@@ -117,7 +117,7 @@ etl_airbnb/
 ## Integrantes y responsabilidades
 
 
-| Integrante | Responsabilidades |
+| Integrantes |
 |---|
 | Santiago Lopez Vallejo  |
 | Sebastian Garcia Velez  |
