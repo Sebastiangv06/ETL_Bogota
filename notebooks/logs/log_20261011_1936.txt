@@ -1,0 +1,7 @@
+2026-10-11 19:36:16 | INFO     | ETL_Airbnb | [Extraccion] Conexión exitosa a MongoDB: localhost:27017/airbnb_bogota
+2026-10-11 19:36:16 | INFO     | ETL_Airbnb | [Extraccion] Colecciones encontradas: ['bogota', 'Calendar', 'Reviews', 'Listings']
+2026-10-11 19:36:18 | INFO     | ETL_Airbnb | [Extraccion] Extracción exitosa: 'Listings' - 19187 registros, 78 columnas
+2026-10-11 19:36:24 | INFO     | ETL_Airbnb | [Extraccion] Extracción exitosa: 'Reviews' - 527731 registros, 6 columnas
+2026-10-11 19:37:49 | INFO     | ETL_Airbnb | [Extraccion] Extracción exitosa: 'Calendar' - 7003255 registros, 5 columnas
+2026-10-11 19:37:53 | INFO     | ETL_Airbnb | [Extraccion] Extracción completa: 3 colecciones, 7550173 registros totales
+2026-10-11 19:37:53 | INFO     | ETL_Airbnb | [Extraccion] Conexión a MongoDB cerrada

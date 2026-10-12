@@ -1,0 +1,37 @@
+2026-10-11 19:48:13 | INFO     | ETL_Airbnb | [Extraccion] Conexión exitosa a MongoDB: localhost:27017/airbnb_bogota
+2026-10-11 19:48:13 | INFO     | ETL_Airbnb | [Extraccion] Colecciones encontradas: ['bogota', 'Calendar', 'Reviews', 'Listings']
+2026-10-11 19:48:15 | INFO     | ETL_Airbnb | [Extraccion] Extracción exitosa: 'Listings' - 19187 registros, 78 columnas
+2026-10-11 19:48:21 | INFO     | ETL_Airbnb | [Extraccion] Extracción exitosa: 'Reviews' - 527731 registros, 6 columnas
+2026-10-11 19:49:34 | INFO     | ETL_Airbnb | [Extraccion] Extracción exitosa: 'Calendar' - 7003255 registros, 5 columnas
+2026-10-11 19:49:37 | INFO     | ETL_Airbnb | [Extraccion] Extracción completa: 3 colecciones, 7550173 registros totales
+2026-10-11 19:49:37 | INFO     | ETL_Airbnb | [Extraccion] Conexión a MongoDB cerrada
+2026-10-11 19:49:50 | INFO     | ETL_Airbnb | [Transformacion] === INICIANDO PIPELINE COMPLETO DE TRANSFORMACIÓN ===
+2026-10-11 19:49:50 | INFO     | ETL_Airbnb | [Transformacion] Iniciando transformación de Listings
+2026-10-11 19:49:50 | INFO     | ETL_Airbnb | [Transformacion] Precio normalizado: 'price' -> 'price_normalized' (18992 válidos, 195 nulos)
+2026-10-11 19:49:50 | INFO     | ETL_Airbnb | [Transformacion] Precios categorizados en 'price_category': {'Muy Bajo': np.int64(0), 'Bajo': np.int64(4754), 'Medio-Bajo': np.int64(4746), 'Medio-Alto': np.int64(4744), 'Alto': np.int64(4748), 'Muy Alto': np.int64(0)}
+2026-10-11 19:49:51 | INFO     | ETL_Airbnb | [Transformacion] Amenities expandidos: 30 columnas binarias creadas (prefijo: 'amenity_')
+2026-10-11 19:49:51 | INFO     | ETL_Airbnb | [Transformacion] Fecha normalizada: 'last_review' -> %Y-%m-%d (14922 válidas, 4265 nulas)
+2026-10-11 19:49:51 | INFO     | ETL_Airbnb | [Transformacion] Fecha normalizada: 'first_review' -> %Y-%m-%d (14922 válidas, 4265 nulas)
+2026-10-11 19:49:51 | INFO     | ETL_Airbnb | [Transformacion] Variables temporales derivadas de 'last_review': year, month, day, quarter, day_of_week, month_name, is_weekend, day_name (14922 registros válidos)
+2026-10-11 19:49:51 | INFO     | ETL_Airbnb | [Transformacion] Variables temporales derivadas de 'first_review': year, month, day, quarter, day_of_week, month_name, is_weekend, day_name (14922 registros válidos)
+2026-10-11 19:49:51 | INFO     | ETL_Airbnb | [Transformacion] Listings: Limpieza nulos - 19187 -> 5397 registros (125661 nulos tratados)
+2026-10-11 19:49:51 | INFO     | ETL_Airbnb | [Transformacion] Listings: No se encontraron duplicados
+2026-10-11 19:49:51 | INFO     | ETL_Airbnb | [Transformacion] Columna compleja eliminada: 'amenities' (tipo: list)
+2026-10-11 19:49:51 | INFO     | ETL_Airbnb | [Transformacion] Columna compleja eliminada: 'price_quote_raw' (tipo: dict)
+2026-10-11 19:49:51 | INFO     | ETL_Airbnb | [Transformacion] Listings transformado: 19187 -> 5397 registros
+2026-10-11 19:49:51 | INFO     | ETL_Airbnb | [Transformacion] Iniciando transformación de Reviews
+2026-10-11 19:49:51 | INFO     | ETL_Airbnb | [Transformacion] Fecha normalizada: 'date' -> %Y-%m-%d (527731 válidas, 0 nulas)
+2026-10-11 19:49:52 | INFO     | ETL_Airbnb | [Transformacion] Variables temporales derivadas de 'date': year, month, day, quarter, day_of_week, month_name, is_weekend, day_name (527731 registros válidos)
+2026-10-11 19:49:53 | INFO     | ETL_Airbnb | [Transformacion] Reviews: Limpieza nulos - 527731 -> 527730 registros (1 nulos tratados)
+2026-10-11 19:49:53 | INFO     | ETL_Airbnb | [Transformacion] Reviews: Eliminados 88 duplicados (527730 -> 527642)
+2026-10-11 19:49:53 | INFO     | ETL_Airbnb | [Transformacion] Reviews transformado: 527731 -> 527642 registros
+2026-10-11 19:49:53 | INFO     | ETL_Airbnb | [Transformacion] Iniciando transformación de Calendar
+2026-10-11 19:49:55 | INFO     | ETL_Airbnb | [Transformacion] Fecha normalizada: 'date' -> %Y-%m-%d (7003255 válidas, 0 nulas)
+2026-10-11 19:50:02 | INFO     | ETL_Airbnb | [Transformacion] Variables temporales derivadas de 'date': year, month, day, quarter, day_of_week, month_name, is_weekend, day_name (7003255 registros válidos)
+2026-10-11 19:50:06 | INFO     | ETL_Airbnb | [Transformacion] Calendar: Limpieza nulos - 7003255 -> 7003255 registros (0 nulos tratados)
+2026-10-11 19:50:07 | INFO     | ETL_Airbnb | [Transformacion] Calendar: No se encontraron duplicados
+2026-10-11 19:50:07 | INFO     | ETL_Airbnb | [Transformacion] Calendar transformado: 7003255 -> 7003255 registros
+2026-10-11 19:50:07 | INFO     | ETL_Airbnb | [Transformacion] === PIPELINE DE TRANSFORMACIÓN COMPLETADO ===
+2026-10-11 19:50:07 | INFO     | ETL_Airbnb | [Transformacion]   Listings: 5397 registros, 125 columnas
+2026-10-11 19:50:07 | INFO     | ETL_Airbnb | [Transformacion]   Reviews: 527642 registros, 15 columnas
+2026-10-11 19:50:07 | INFO     | ETL_Airbnb | [Transformacion]   Calendar: 7003255 registros, 13 columnas

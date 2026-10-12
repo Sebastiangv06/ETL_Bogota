@@ -1,0 +1,83 @@
+2026-10-11 20:53:39 | INFO     | ETL_Airbnb | [ETL_Main] ============================================================
+2026-10-11 20:53:39 | INFO     | ETL_Airbnb | [ETL_Main] INICIANDO PROCESO ETL COMPLETO - AIRBNB BOGOTÁ
+2026-10-11 20:53:39 | INFO     | ETL_Airbnb | [ETL_Main] ============================================================
+2026-10-11 20:53:39 | INFO     | ETL_Airbnb | [ETL_Main] >>> FASE 1: EXTRACCIÓN DE DATOS DESDE MONGODB <<<
+2026-10-11 20:53:39 | INFO     | ETL_Airbnb | [Extraccion] Conexión exitosa a MongoDB: localhost:27017/airbnb_bogota
+2026-10-11 20:53:39 | INFO     | ETL_Airbnb | [Extraccion] Colecciones encontradas: ['bogota', 'Calendar', 'Reviews', 'Listings']
+2026-10-11 20:53:39 | INFO     | ETL_Airbnb | [ETL_Main] Colecciones disponibles en MongoDB: ['bogota', 'Calendar', 'Reviews', 'Listings']
+2026-10-11 20:53:41 | INFO     | ETL_Airbnb | [Extraccion] Extracción exitosa: 'Listings' - 19187 registros, 78 columnas
+2026-10-11 20:53:48 | INFO     | ETL_Airbnb | [Extraccion] Extracción exitosa: 'Reviews' - 527731 registros, 6 columnas
+2026-10-11 20:55:24 | INFO     | ETL_Airbnb | [Extraccion] Extracción exitosa: 'Calendar' - 7003255 registros, 5 columnas
+2026-10-11 20:55:27 | INFO     | ETL_Airbnb | [Extraccion] Extracción completa: 3 colecciones, 7550173 registros totales
+2026-10-11 20:55:27 | INFO     | ETL_Airbnb | [ETL_Main] Extracción completada: 7550173 registros totales
+2026-10-11 20:55:27 | INFO     | ETL_Airbnb | [Extraccion] Conexión a MongoDB cerrada
+2026-10-11 20:55:27 | INFO     | ETL_Airbnb | [ETL_Main] >>> FASE 2: TRANSFORMACIÓN Y LIMPIEZA DE DATOS <<<
+2026-10-11 20:55:27 | INFO     | ETL_Airbnb | [Transformacion] === INICIANDO PIPELINE COMPLETO DE TRANSFORMACIÓN ===
+2026-10-11 20:55:27 | INFO     | ETL_Airbnb | [Transformacion] Iniciando transformación de Listings
+2026-10-11 20:55:28 | INFO     | ETL_Airbnb | [Transformacion] Precio normalizado: 'price' -> 'price_normalized' (18992 válidos, 195 nulos)
+2026-10-11 20:55:28 | INFO     | ETL_Airbnb | [Transformacion] Precios categorizados en 'price_category': {'Muy Bajo': np.int64(0), 'Bajo': np.int64(4754), 'Medio-Bajo': np.int64(4746), 'Medio-Alto': np.int64(4744), 'Alto': np.int64(4748), 'Muy Alto': np.int64(0)}
+2026-10-11 20:55:29 | INFO     | ETL_Airbnb | [Transformacion] Amenities expandidos: 30 columnas binarias creadas (prefijo: 'amenity_')
+2026-10-11 20:55:29 | INFO     | ETL_Airbnb | [Transformacion] Fecha normalizada: 'last_review' -> %Y-%m-%d (14922 válidas, 4265 nulas)
+2026-10-11 20:55:29 | INFO     | ETL_Airbnb | [Transformacion] Fecha normalizada: 'first_review' -> %Y-%m-%d (14922 válidas, 4265 nulas)
+2026-10-11 20:55:29 | INFO     | ETL_Airbnb | [Transformacion] Variables temporales derivadas de 'last_review': year, month, day, quarter, day_of_week, month_name, is_weekend, day_name (14922 registros válidos)
+2026-10-11 20:55:29 | INFO     | ETL_Airbnb | [Transformacion] Variables temporales derivadas de 'first_review': year, month, day, quarter, day_of_week, month_name, is_weekend, day_name (14922 registros válidos)
+2026-10-11 20:55:30 | INFO     | ETL_Airbnb | [Transformacion] Listings: Limpieza nulos - 19187 -> 5397 registros (125466 nulos tratados)
+2026-10-11 20:55:30 | INFO     | ETL_Airbnb | [Transformacion] Listings: No se encontraron duplicados
+2026-10-11 20:55:30 | INFO     | ETL_Airbnb | [Transformacion] Columna compleja eliminada: 'amenities' (tipo: list)
+2026-10-11 20:55:30 | INFO     | ETL_Airbnb | [Transformacion] Columna compleja eliminada: 'price_quote_raw' (tipo: dict)
+2026-10-11 20:55:30 | INFO     | ETL_Airbnb | [Transformacion] Listings transformado: 19187 -> 5397 registros
+2026-10-11 20:55:30 | INFO     | ETL_Airbnb | [Transformacion] Iniciando transformación de Reviews
+2026-10-11 20:55:31 | INFO     | ETL_Airbnb | [Transformacion] Fecha normalizada: 'date' -> %Y-%m-%d (527731 válidas, 0 nulas)
+2026-10-11 20:55:31 | INFO     | ETL_Airbnb | [Transformacion] Variables temporales derivadas de 'date': year, month, day, quarter, day_of_week, month_name, is_weekend, day_name (527731 registros válidos)
+2026-10-11 20:55:32 | INFO     | ETL_Airbnb | [Transformacion] Reviews: Limpieza nulos - 527731 -> 527730 registros (1 nulos tratados)
+2026-10-11 20:55:33 | INFO     | ETL_Airbnb | [Transformacion] Reviews: Eliminados 88 duplicados (527730 -> 527642)
+2026-10-11 20:55:33 | INFO     | ETL_Airbnb | [Transformacion] Reviews transformado: 527731 -> 527642 registros
+2026-10-11 20:55:33 | INFO     | ETL_Airbnb | [Transformacion] Iniciando transformación de Calendar
+2026-10-11 20:55:35 | INFO     | ETL_Airbnb | [Transformacion] Fecha normalizada: 'date' -> %Y-%m-%d (7003255 válidas, 0 nulas)
+2026-10-11 20:55:44 | INFO     | ETL_Airbnb | [Transformacion] Variables temporales derivadas de 'date': year, month, day, quarter, day_of_week, month_name, is_weekend, day_name (7003255 registros válidos)
+2026-10-11 20:55:49 | INFO     | ETL_Airbnb | [Transformacion] Calendar: Limpieza nulos - 7003255 -> 7003255 registros (0 nulos tratados)
+2026-10-11 20:55:50 | INFO     | ETL_Airbnb | [Transformacion] Calendar: No se encontraron duplicados
+2026-10-11 20:55:50 | INFO     | ETL_Airbnb | [Transformacion] Calendar transformado: 7003255 -> 7003255 registros
+2026-10-11 20:55:50 | INFO     | ETL_Airbnb | [Transformacion] === PIPELINE DE TRANSFORMACIÓN COMPLETADO ===
+2026-10-11 20:55:50 | INFO     | ETL_Airbnb | [Transformacion]   Listings: 5397 registros, 124 columnas
+2026-10-11 20:55:50 | INFO     | ETL_Airbnb | [Transformacion]   Reviews: 527642 registros, 14 columnas
+2026-10-11 20:55:50 | INFO     | ETL_Airbnb | [Transformacion]   Calendar: 7003255 registros, 13 columnas
+2026-10-11 20:55:50 | INFO     | ETL_Airbnb | [ETL_Main] >>> FASE 3: CARGA A SQLITE Y EXPORTACIÓN XLSX <<<
+2026-10-11 20:55:50 | INFO     | ETL_Airbnb | [Carga] === INICIANDO PIPELINE COMPLETO DE CARGA ===
+2026-10-11 20:55:51 | INFO     | ETL_Airbnb | [Carga] Iniciando carga a SQLite: data/airbnb_etl.db
+2026-10-11 20:55:53 | INFO     | ETL_Airbnb | [Carga] Cargada tabla 'listings': 5397 registros (DataFrame tenía 5397)
+2026-10-11 20:56:04 | INFO     | ETL_Airbnb | [Carga] Cargada tabla 'reviews': 527642 registros (DataFrame tenía 527642)
+2026-10-11 20:57:14 | INFO     | ETL_Airbnb | [Carga] Cargada tabla 'calendar': 7003255 registros (DataFrame tenía 7003255)
+2026-10-11 20:57:14 | INFO     | ETL_Airbnb | [Carga] Carga a SQLite completada: 7536294 registros totales en 3 tablas
+2026-10-11 20:57:14 | INFO     | ETL_Airbnb | [Carga] Verificación OK: 'listings' - 5397 registros, 124 columnas
+2026-10-11 20:57:14 | INFO     | ETL_Airbnb | [Carga] Verificación OK: 'reviews' - 527642 registros, 14 columnas
+2026-10-11 20:57:15 | INFO     | ETL_Airbnb | [Carga] Verificación OK: 'calendar' - 7003255 registros, 13 columnas
+2026-10-11 20:57:15 | INFO     | ETL_Airbnb | [Carga] Verificación SQLite: EXITOSA - 7536294 registros totales
+2026-10-11 20:57:15 | INFO     | ETL_Airbnb | [Carga] Excluidas del XLSX principal (exceden 1M filas): ['Calendar']
+2026-10-11 20:57:20 | INFO     | ETL_Airbnb | [Carga] Exportada hoja 'Listings': 5397 filas, 124 columnas
+2026-10-11 20:58:03 | INFO     | ETL_Airbnb | [Carga] Exportada hoja 'Reviews': 527642 filas, 14 columnas
+2026-10-11 20:59:44 | INFO     | ETL_Airbnb | [Carga] Exportación XLSX completada: data\xlsx_export\airbnb_datos_transformados.xlsx
+2026-10-11 20:59:48 | INFO     | ETL_Airbnb | [Carga] Exportada hoja 'Listings': 5397 filas, 124 columnas
+2026-10-11 20:59:57 | INFO     | ETL_Airbnb | [Carga] Exportación XLSX completada: data\xlsx_export\airbnb_listings.xlsx
+2026-10-11 21:00:56 | INFO     | ETL_Airbnb | [Carga] Exportada hoja 'Reviews': 527642 filas, 14 columnas
+2026-10-11 21:02:47 | INFO     | ETL_Airbnb | [Carga] Exportación XLSX completada: data\xlsx_export\airbnb_reviews.xlsx
+2026-10-11 21:02:47 | INFO     | ETL_Airbnb | [Carga] Dividiendo 'Calendar' en 7 hojas (7003255 filas, límite 1048575 por hoja)
+2026-10-11 21:04:24 | INFO     | ETL_Airbnb | [Carga] Exportada hoja 'Calendar_1': 1048575 filas (1-1048575 de 7003255)
+2026-10-11 21:06:40 | INFO     | ETL_Airbnb | [Carga] Exportada hoja 'Calendar_2': 1048575 filas (1048576-2097150 de 7003255)
+2026-10-11 21:12:20 | INFO     | ETL_Airbnb | [Carga] Exportada hoja 'Calendar_3': 1048575 filas (2097151-3145725 de 7003255)
+2026-10-11 21:22:44 | INFO     | ETL_Airbnb | [Carga] Exportada hoja 'Calendar_4': 1048575 filas (3145726-4194300 de 7003255)
+2026-10-11 21:30:35 | INFO     | ETL_Airbnb | [Carga] Exportada hoja 'Calendar_5': 1048575 filas (4194301-5242875 de 7003255)
+2026-10-11 21:40:32 | INFO     | ETL_Airbnb | [Carga] Exportada hoja 'Calendar_6': 1048575 filas (5242876-6291450 de 7003255)
+2026-10-11 21:41:48 | INFO     | ETL_Airbnb | [Carga] Exportada hoja 'Calendar_7': 711805 filas (6291451-7003255 de 7003255)
+2026-10-11 21:42:32 | ERROR    | ETL_Airbnb | [Carga] Error exportando a XLSX: 
+2026-10-11 21:42:32 | INFO     | ETL_Airbnb | [Carga] Exportación múltiple XLSX: 2 archivos generados
+2026-10-11 21:42:32 | INFO     | ETL_Airbnb | [Carga] === PIPELINE DE CARGA COMPLETADO ===
+2026-10-11 21:42:32 | INFO     | ETL_Airbnb | [Carga] SQLite: 7536294 registros en 3 tablas
+2026-10-11 21:42:32 | INFO     | ETL_Airbnb | [Carga] XLSX principal: data\xlsx_export\airbnb_datos_transformados.xlsx
+2026-10-11 21:42:32 | INFO     | ETL_Airbnb | [Carga] XLSX por tabla: 2 archivos
+2026-10-11 21:42:32 | INFO     | ETL_Airbnb | [ETL_Main] ============================================================
+2026-10-11 21:42:32 | INFO     | ETL_Airbnb | [ETL_Main] PROCESO ETL COMPLETADO EXITOSAMENTE
+2026-10-11 21:42:32 | INFO     | ETL_Airbnb | [ETL_Main] ============================================================
+2026-10-11 21:42:32 | INFO     | ETL_Airbnb | [ETL_Main] Archivo de log: logs\log_20261011_2053.txt
+2026-10-11 21:42:32 | INFO     | ETL_Airbnb | [ETL_Main] SQLite: data/airbnb_etl.db
+2026-10-11 21:42:32 | INFO     | ETL_Airbnb | [ETL_Main] XLSX: data/xlsx_export/airbnb_datos_transformados.xlsx
