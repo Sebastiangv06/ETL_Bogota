@@ -98,15 +98,7 @@ jupyter notebook notebooks/exploracion_airbnb.ipynb
 
 Ejecuta todas las celdas para ver gráficas y hallazgos. Hazlo **antes** del ETL si quieres seguir el orden natural: primero entender los datos, luego limpiarlos.
 
-## Paso 5: Generar el informe en PDF
 
-Cuando el ETL ya corrió, este comando arma el informe final con las cifras y gráficas reales de tus datos:
-
-```bash
-python informe/generar_informe.py --integrantes "Nombre 1" "Nombre 2" "Nombre 3" --docente "Nombre docente" --repo-url "https://github.com/usuario/repo"
-```
-
-Queda en `informe/Informe_ETL_Airbnb_Bogota.pdf`.
 
 ## ¿Cómo está organizado?
 
@@ -124,13 +116,12 @@ etl_airbnb/
 
 ## Integrantes y responsabilidades
 
-> Completar con los datos reales del grupo.
 
 | Integrante | Responsabilidades |
 |---|---|
-| [Nombre 1] | [p. ej. Extracción y carga a MongoDB] |
-| [Nombre 2] | [p. ej. Transformación y logs] |
-| [Nombre 3] | [p. ej. EDA e informe] |
+| Santiago Lopez Vallejo  |
+| Sebastian Garcia Velez  |
+|Ambos encargados de el desarrollo de todo el proyecto |
 
 ## Si algo falla
 
