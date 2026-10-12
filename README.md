@@ -118,10 +118,10 @@ etl_airbnb/
 
 
 | Integrante | Responsabilidades |
-|---|---|
+|---|
 | Santiago Lopez Vallejo  |
 | Sebastian Garcia Velez  |
-|Ambos encargados de el desarrollo de todo el proyecto |
+Ambos encargados de el desarrollo de todo el proyecto 
 
 ## Si algo falla
 
@@ -133,3 +133,5 @@ etl_airbnb/
 | Se queda sin memoria o tarda mucho | El calendario es muy grande (millones de filas). Cierra otros programas; para el informe puedes usar `--max-calendar 1000000`. |
 
 
+## Notas adicionales
+adicional en la carpeta `\Data` se encuentra vacia debido a las limitaciones de github para subir archivos individuales de mas de 100mb, por lo que el sqlite esta por fuera y los archivos de excel, para la visualizacion ejecuten el proyecto con las recomendaciones de la parte superior
