@@ -132,4 +132,4 @@ etl_airbnb/
 | `ModuleNotFoundError` | Activa el entorno virtual y vuelve a ejecutar `pip install -r requirements.txt`. |
 | Se queda sin memoria o tarda mucho | El calendario es muy grande (millones de filas). Cierra otros programas; para el informe puedes usar `--max-calendar 1000000`. |
 
-Para más detalle de cada clase y método, mira `docs/GUIA_TECNICA.md`.
+
